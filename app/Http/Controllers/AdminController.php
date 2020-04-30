@@ -96,9 +96,28 @@ class AdminController extends Controller
         return view('admin.categories', compact('categories'));
     }
 
+    public function create_main_category(Request $request){
+        $cat = new Category;
+        $cat->name = $request->input('name');
+        $cat->category_type = "main";
+        $cat->save();
+        return redirect('/admin/categories');
+    }
+
     public function sub_categories_view($id){
+        $main_category = Category::find($id);
         $sub_categories = Category::where('sub_parent_id',$id)->get();
-        return view('admin.sub_categories', compact('sub_categories'));
+        return view('admin.sub_categories', compact('sub_categories','main_category'));
+    }
+
+    public function create_sub_category(Request $request, $id){
+        $cat = new Category;
+        $cat->name = $request->input('name');
+        $cat->category_type = "sub";
+        $main_cat = Category::find($id);
+        $cat->sub_parent_id = $main_cat->id;
+        $cat->save();
+        return redirect("/admin/sub_categories/$id");
     }
 
     public function getUser(){

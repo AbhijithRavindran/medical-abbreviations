@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'MainController@home');
+Route::post('/search', 'MainController@search');
+Route::get('/live_search/{query?}', 'MainController@live_search');
+Route::get('/category/{id}', 'MainController@view_category');
+Route::get('/sub_category/{id}', 'MainController@view_sub_category');
+Route::get('/abbreviation/{id}', 'MainController@view_abbreviation');
 Route::get('/login', 'AdminController@loginview')->name('login');
 Route::post('/login', 'AdminController@login')->name('admin_login');
 
@@ -28,5 +33,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::patch('/admin/update_abbreviation/{id}', 'AdminController@update_abbreviation');
     Route::get('/admin/delete_abbreviation/{id}', 'AdminController@delete_abbreviation');
     Route::get('/admin/sub_categories/{id}', 'AdminController@sub_categories_view')->name('sub_categories_view');
+    Route::post('/admin/categories/create', 'AdminController@create_main_category');
+    Route::post('/admin/sub_categories/create/{id}', 'AdminController@create_sub_category');
 });
 

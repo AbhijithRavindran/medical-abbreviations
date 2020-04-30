@@ -24,11 +24,11 @@
         <p class="card-description">
           Add a new main category here.
         </p>
-        <form action="" method="POST"  class="forms-sample">
+        <form action="/admin/categories/create" method="POST"  class="forms-sample">
           @csrf
         <div class="form-group">
           <div class="input-group">
-              <input type="text" class="form-control" placeholder="Main - category name" aria-label="">
+              <input type="text" name="name" class="form-control" placeholder="Main - category name" aria-label="">
               <div class="input-group-append">
                 <button class="btn btn-sm btn-success" type="submit">Add</button>
               </div>
