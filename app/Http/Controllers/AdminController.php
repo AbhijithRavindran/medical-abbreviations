@@ -30,8 +30,8 @@ class AdminController extends Controller
     }
 
     public function abbreviations_view(){
-        $abbreviations = Abbreviation::latest()->paginate(5);
-        return view('admin.abbreviations', compact('abbreviations'))->with('i', (request()->input('page',1)-1)*5);
+        $abbreviations = Abbreviation::latest()->paginate(10);
+        return view('admin.abbreviations', compact('abbreviations'))->with('i', (request()->input('page',1)-1)*10);
     }
 
     public function new_abbreviation(){
@@ -77,8 +77,6 @@ class AdminController extends Controller
     }
 
     public function view_abbreviation($id){
-        
-
         $abbreviation = Abbreviation::where('id', $id)->first();
         //$main_category = Category::where('id', $abbreviation->category_id)->first();
         $sub_category = Category::where('id', $abbreviation->sub_category_id)->first();
@@ -92,13 +90,32 @@ class AdminController extends Controller
     }
 
     public function categories_view(){
-        $categories = Category::where('category_type',"main")->get();
-        return view('admin.categories', compact('categories'));
+        $categories = Category::where('category_type',"main")->paginate(10);
+        return view('admin.categories', compact('categories'))->with('i', (request()->input('page',1)-1)*10);
+    }
+
+    public function create_main_category(Request $request){
+        $cat = new Category;
+        $cat->name = $request->input('name');
+        $cat->category_type = "main";
+        $cat->save();
+        return redirect('/admin/categories');
     }
 
     public function sub_categories_view($id){
-        $sub_categories = Category::where('sub_parent_id',$id)->get();
-        return view('admin.sub_categories', compact('sub_categories'));
+        $main_category = Category::find($id);
+        $sub_categories = Category::where('sub_parent_id',$id)->paginate(10);
+        return view('admin.sub_categories', compact('sub_categories','main_category'))->with('i', (request()->input('page',1)-1)*10);
+    }
+
+    public function create_sub_category(Request $request, $id){
+        $cat = new Category;
+        $cat->name = $request->input('name');
+        $cat->category_type = "sub";
+        $main_cat = Category::find($id);
+        $cat->sub_parent_id = $main_cat->id;
+        $cat->save();
+        return redirect("/admin/sub_categories/$id");
     }
 
     public function getUser(){
