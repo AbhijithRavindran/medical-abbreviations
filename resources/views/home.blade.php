@@ -1,14 +1,10 @@
 @extends('home_layout')
 @section('content')
 <div class="row">
-
-
-
-
 <div class="col-md-9 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Introduction</h4>
+        <h3 class="">Introduction</h3>
         <p class="card-description">
             Lorem Ipsum is simply dummy text of the printing and typesetting industry.
         </p>
