@@ -24,17 +24,41 @@
 .footer-custom-main{
   background-color: #000000d1;
 }
-
-
+body { 
+	max-width: 1000px; 
+	margin: 0 auto !important; 
+	float: none !important; 
+  background-color: #e6e6e6;
+}
+.nav-custom{ 
+	max-width: 1000px !important; 
+    margin: 0 auto; 
+}
+.a-z-list{
+  padding: 0.0rem 0.1rem !important; 
+  font-size:12px ;
+}
+.custom-a-z-list{
+  text-align: center;
+  width:14%;
+}
+.home-btn{
+  font-size: 25px; 
+  margin-left:10px;
+}
 </style>
 
 
 
 </head>
 <body>
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0&appId=917005428754249&autoLogAppEvents=1"></script>
+  
+  
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
-    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row" >
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row nav-custom" >
       <div class="navbar-brand-wrapper d-flex justify-content-center" >
         <br>
         <div style="padding-top: 10px;">
@@ -59,7 +83,7 @@
         </ul>
         <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item nav-profile ">
-              <a href="\" style="font-size: 40px;"><i class="mdi mdi-home"></a></i>
+              <a href="\" class="home-btn"><i class="mdi mdi-home"></a></i>
             </li>
         </ul>
         {{-- <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
@@ -80,8 +104,9 @@
                     <table class="table">
                       <thead>
                         <tr>
+                          <th class="a-z-list custom-a-z-list">Search by words:</th>
                           @foreach(range('A', 'Z') as $char)
-                            <th style="padding: 0.0rem 0.9375rem !important;"><a href="/starting_by/{{$char}}">{{$char}}</a></th>
+                            <th class="a-z-list"><a href="/starting_by/{{$char}}">{{$char}}</a></th>
                           @endforeach
                         </tr>
                       </thead>
@@ -92,14 +117,59 @@
             </div>
 
           </div>
+          <div class="row">
+            <div class="col-md-3 ">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">300 x 600</h4>
+                  {{-- <p class="card-description">Add class <code>.list-star</code> to <code>&lt;ul&gt;</code></p> --}}
+                  <ul class="list-star">
+                    <li>DEMO</li>
+                    <li>DEMO</li>
+                    <li>DEMO</li>
+                    <li>DEMO</li>
+                    <li>DEMO</li>
+                    <li>DEMO</li>
+                    <li>DEMO</li>
+                    <li>DEMO</li>
+                    <li>DEMO</li>
+                    <li>DEMO</li>
+                    <li>DEMO</li>
+                    <li>DEMO</li>
+                    <li>DEMO</li>
+                    <li>DEMO</li>
+                  </ul>
+                </div>
+              </div>
+              <br>
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">300 x 250</h4>
+                  {{-- <p class="card-description">Add class <code>.list-star</code> to <code>&lt;ul&gt;</code></p> --}}
+                  <ul class="list-star">
+                    <li>DEMO</li>
+                    <li>DEMO</li>
+                    <li>DEMO</li>
+                    <li>DEMO</li>
+                    <li>DEMO</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
                 @yield('content')
-
+          </div>
+          <div class="row">
+          
+            <div class="col-md-12 offset-lg-3  ">
+            <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-numposts="5" data-width=""></div>
+            </div>
+          </div>
         </div>
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->
         <footer class="footer footer-custom-main">
           <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block"><a href="/" target="_blank">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" target="_blank">About</a></span>
           </div>
         </footer>
         <!-- partial -->

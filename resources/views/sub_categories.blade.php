@@ -1,10 +1,9 @@
 @extends('home_layout')
 @section('content')
-    <div class="row">
-        <div class="col-md-6 offset-lg-3 grid-margin grid-margin-md-0 stretch-card">
+        <div class="col-md-6 offset-lg-2 grid-margin grid-margin-md-0 stretch-card">
             <div class="card">
               <div class="card-body">
-                <h4 class="card-title">Sub-Categories</h4>
+                <h4 class="card-title">{{$main_category->name}}</h4>
                 <p class="card-description"></p>
                 <ul class="list-arrow">
                   @foreach ($sub_categories as $sub_category)
@@ -13,6 +12,5 @@
                 </ul>
               </div>
             </div>
-          </div>
     </div>
 @endsection

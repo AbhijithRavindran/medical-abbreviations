@@ -1,7 +1,6 @@
 @extends('home_layout')
 @section('content')
-    <div class="row">
-        <div class="col-md-6 offset-lg-3 grid-margin grid-margin-md-0 stretch-card">
+        <div class="col-md-6 offset-lg-1 grid-margin grid-margin-md-0 stretch-card">
             <div class="card">
               <div class="card-body">
               <h4 class="card-title">Abbreviations</h4>
@@ -9,7 +8,7 @@
                 <form action="/filter" method="post">
                 @csrf
                 <div class="form-group">
-                  <label for="exampleFormControlSelect3">Sort By Category</label>
+                  <label for="exampleFormControlSelect3">Sort By </label>
                   <select name="category_id" class="form-control form-control-sm" id="exampleFormControlSelect3" required>
                     <option value="0">All</option>
                     @foreach($categories as $category)
@@ -29,5 +28,4 @@
               </div>
             </div>
           </div>
-    </div>
 @endsection

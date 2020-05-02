@@ -40,7 +40,8 @@ class MainController extends Controller
 
     public function view_category($id){
         $sub_categories = Category::where('sub_parent_id',$id)->get();
-        return view('sub_categories', compact('sub_categories'));
+        $main_category = Category::find($id);
+        return view('sub_categories', compact('sub_categories', 'main_category'));
     }
 
     public function view_sub_category($id){

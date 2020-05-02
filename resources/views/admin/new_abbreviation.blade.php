@@ -11,11 +11,11 @@
           @csrf
           <div class="form-group">
             <label for="exampleInputName1">Abbreviation</label>
-            <input type="text" name="abbreviation" class="form-control" id="exampleInputName1" placeholder="abbreviation..">
+            <input type="text" required name="abbreviation" class="form-control" id="exampleInputName1" placeholder="abbreviation..">
           </div>
           <div class="form-group">
             <label for="exampleInputName1">Description</label>
-            <input type="text" name="description" class="form-control" id="exampleInputName1" placeholder="description..">
+            <input type="text" required name="description" class="form-control" id="exampleInputName1" placeholder="description..">
           </div>
           <div class="form-group">
             <label for="exampleSelectGender">Sub-Category</label>
@@ -27,7 +27,7 @@
             </div>
           <div class="form-group">
             <label for="exampleTextarea1">Definition</label>
-            <textarea name="definition" class="form-control" id="exampleTextarea1" rows="4"></textarea>
+            <textarea required name="definition" class="form-control" id="exampleTextarea1" rows="4"></textarea>
           </div>
           <button type="submit" class="btn btn-primary mr-2">Submit</button>
           <a href="/admin/abbreviations" class="btn btn-light">Cancel</a>
