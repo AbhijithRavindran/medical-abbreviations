@@ -12,11 +12,11 @@
         @method('PATCH')
           <div class="form-group">
             <label for="exampleInputName1">Abbreviation</label>
-          <input type="text" value="{{$abbreviation->abbreviation}}"  name="abbreviation" class="form-control" id="exampleInputName1" placeholder="abbreviation..">
+          <input type="text" required value="{{$abbreviation->abbreviation}}"  name="abbreviation" class="form-control" id="exampleInputName1" placeholder="abbreviation..">
           </div>
           <div class="form-group">
             <label for="exampleInputName1">Description</label>
-            <input type="text" value="{{$abbreviation->description}}" name="description" class="form-control" id="exampleInputName1" placeholder="description..">
+            <input type="text" required value="{{$abbreviation->description}}" name="description" class="form-control" id="exampleInputName1" placeholder="description..">
           </div>
           <div class="form-group">
             <label for="exampleSelectGender">Sub-Category</label>
@@ -32,7 +32,7 @@
           </div>
           <div class="form-group">
             <label for="exampleTextarea1">Definition</label>
-            <textarea class="form-control" name="definition" id="exampleTextarea1" rows="4">{{$abbreviation->definition}}</textarea>
+            <textarea required class="form-control" name="definition" id="exampleTextarea1" rows="4">{{$abbreviation->definition}}</textarea>
           </div>
           <button type="submit" class="btn btn-warning mr-2">Update</button>
           <a href="/admin/delete_abbreviation/{{$abbreviation->id}}" class="btn btn-danger mr-2">Delete</a>
