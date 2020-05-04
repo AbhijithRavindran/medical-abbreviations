@@ -1,6 +1,6 @@
 @extends('home_layout')
 @section('content')
-        <div class="col-md-6 offset-lg-2 grid-margin grid-margin-md-0 stretch-card">
+        <div class="col-md-8 grid-margin grid-margin-md-0 stretch-card">
             <div class="card">
               <div class="card-body">
                 <h4 class="card-title">{{$main_category->name}}</h4>

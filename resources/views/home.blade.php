@@ -1,6 +1,6 @@
 @extends('home_layout')
 @section('content')
-<div class="col-md-6 grid-margin stretch-card">
+<div class="col-md-5 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
         <h3 class="">Introduction</h3>
