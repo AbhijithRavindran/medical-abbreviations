@@ -72,6 +72,21 @@ body {
     width: 300px;
     padding-left: 5px;
   }
+
+  .mini-az-list{
+    font-size: 22px;
+    color: black !important;
+    text-align: center;
+    display: none;
+  }
+  .az-char{
+    display: inline !important; 
+    padding-left:10px !important;
+    font-size: 22px;
+  }
+  .large-az-list{
+    
+  }
   @media screen and (max-width: 767px) {
   .card-cst-600{
     width: 100%;
@@ -90,6 +105,12 @@ body {
   }
   #home-btn{
     font-size: 30px;
+  }
+  .mini-az-list{
+    display: block;
+  }
+  .large-az-list{
+    display: none;
   }
 }
 </style>
@@ -151,7 +172,7 @@ body {
                   <form action="/search" method="POST">
                     <input type="hidden" name="_token" value="un29YZHrL7zyk9BuM8OsLmDXelumUWijVJ1jzycJ">                <div class="input-group">
                       <input type="text" id="tags" class="form-control ui-autocomplete-input" placeholder="Search abbreviations here.." aria-label="Recipient's username" autocomplete="off">
-                      <div class="input-group-append" style="position:relative;left:20px;">
+                      <div class="input-group-append" style="position:relative;">
                         <button class="btn btn-sm btn-primary" type="submit">Search</button>
                       </div>
                     </div>
@@ -161,8 +182,8 @@ body {
             </div>
           </div>
           <div class="row">
-            <div class="col-lg-12 grid-margin stretch-card">
-                  <div class="table-responsive">
+            <div class="col-lg-12 grid-margin stretch-card" >
+                  <div class="table-responsive large-az-list">
                     <table class="table">
                       <thead>
                         <tr>
@@ -176,6 +197,21 @@ body {
                       </tbody>
                     </table>
                   </div>
+                    <div class="mini-az-list">
+                      <p class="az-char" style="">#</p>
+                        @foreach(range('A', 'I') as $char)
+                            <div class="az-char" style=""><a href="/starting_by/{{$char}}">{{$char}}</a></div>
+                        @endforeach
+                        <br>
+                        @foreach(range('J', 'S') as $char)
+                            <div class="az-char" style=""><a href="/starting_by/{{$char}}">{{$char}}</a></div>
+                        @endforeach
+                        <br>
+                        @foreach(range('T', 'Z') as $char)
+                            <div class="az-char" style=""><a href="/starting_by/{{$char}}">{{$char}}</a></div>
+                        @endforeach
+                    </div>
+                  
             </div>
 
           </div>
