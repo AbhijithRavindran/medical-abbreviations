@@ -33,6 +33,7 @@ body {
 .nav-custom{ 
 	max-width: 1000px !important; 
     margin: 0 auto; 
+    margin-top: 10px;
 }
 .a-z-list{
   padding: 0.0rem 0.1rem !important; 
@@ -46,12 +47,58 @@ body {
   font-size: 25px; 
   margin-left:10px;
 }
+.cust-col-mrgn-top{
+  margin-top: 37px;
+}
+#mini-search{
+    display: none ;
+  }
+  #search-cst{
+    display: unset;
+  }
+  #home-btn{
+    font-size: 43px;
+  }
+  .leftad {
+    background-color: #f3f3f3;
+  }
+  .card-cst-600{
+    height: 600px;
+    width: 300px;
+    padding-left: 5px;
+  }
+  .card-cst-250{
+    height: 250px;
+    width: 300px;
+    padding-left: 5px;
+  }
+  @media screen and (max-width: 767px) {
+  .card-cst-600{
+    width: 100%;
+  }
+  .card-cst-250{
+    width: 100%;
+  }
+
+  }
+@media screen and (max-width: 380px) {
+  #mini-search{
+    display: block;
+  }
+  #search-cst{
+    display: none !important;
+  }
+  #home-btn{
+    font-size: 30px;
+  }
+}
 </style>
 
 
 
 </head>
 <body>
+  
   <div id="fb-root"></div>
   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0&appId=917005428754249&autoLogAppEvents=1"></script>
   
@@ -61,14 +108,14 @@ body {
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row nav-custom" >
       <div class="navbar-brand-wrapper d-flex justify-content-center" >
         <br>
-        <div style="padding-top: 10px;">
+        <div style="padding-top: 15px;">
         <h4>Logo</h4>
         </div>
 
       </div>
 
-      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end" >
-        <ul class="navbar-nav mr-lg-4 w-100">
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end" id="nav-left-cst" >
+        <ul class="navbar-nav mr-lg-4 w-100" id="search-cst">
           <li class="nav-item nav-search w-100">
               <form action="/search" method="POST">
                 @csrf
@@ -81,9 +128,9 @@ body {
                 </form>
           </li>
         </ul>
-        <ul class="navbar-nav navbar-nav-right">
+        <ul class="navbar-nav navbar-nav-right" >
             <li class="nav-item nav-profile ">
-              <a href="\" class="home-btn"><i class="mdi mdi-home"></a></i>
+              <a href="\" class="home-btn" id="home-btn"><i class="mdi mdi-home"></a></i>
             </li>
         </ul>
         {{-- <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
@@ -91,20 +138,35 @@ body {
         </button> --}}
       </div>
     </nav>
-
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_sidebar.html -->
       <!-- partial -->
       <div class="main-panel" style="width: 100% !important;">
         <div class="content-wrapper">
+          <div class="row" style="margin:15px;" id="mini-search">
+            <div class="col-lg-12 grid-margin stretch-card">
+            <ul class="navbar-nav mr-lg-4 w-100">
+              <li class="nav-item nav-search w-100">
+                  <form action="/search" method="POST">
+                    <input type="hidden" name="_token" value="un29YZHrL7zyk9BuM8OsLmDXelumUWijVJ1jzycJ">                <div class="input-group">
+                      <input type="text" id="tags" class="form-control ui-autocomplete-input" placeholder="Search abbreviations here.." aria-label="Recipient's username" autocomplete="off">
+                      <div class="input-group-append" style="position:relative;left:20px;">
+                        <button class="btn btn-sm btn-primary" type="submit">Search</button>
+                      </div>
+                    </div>
+                    </form>
+              </li>
+            </ul>
+            </div>
+          </div>
           <div class="row">
             <div class="col-lg-12 grid-margin stretch-card">
                   <div class="table-responsive">
                     <table class="table">
                       <thead>
                         <tr>
-                          <th class="a-z-list custom-a-z-list">Search by words:</th>
+                          <th class="a-z-list custom-a-z-list">Search by &nbsp;#</th>
                           @foreach(range('A', 'Z') as $char)
                             <th class="a-z-list"><a href="/starting_by/{{$char}}">{{$char}}</a></th>
                           @endforeach
@@ -118,41 +180,19 @@ body {
 
           </div>
           <div class="row">
-            <div class="col-md-3 ">
-              <div class="card">
+            <div class="col-md-4 " >
+              <div class="card card-cst-600" >
                 <div class="card-body">
-                  <h4 class="card-title">300 x 600</h4>
-                  {{-- <p class="card-description">Add class <code>.list-star</code> to <code>&lt;ul&gt;</code></p> --}}
-                  <ul class="list-star">
-                    <li>DEMO</li>
-                    <li>DEMO</li>
-                    <li>DEMO</li>
-                    <li>DEMO</li>
-                    <li>DEMO</li>
-                    <li>DEMO</li>
-                    <li>DEMO</li>
-                    <li>DEMO</li>
-                    <li>DEMO</li>
-                    <li>DEMO</li>
-                    <li>DEMO</li>
-                    <li>DEMO</li>
-                    <li>DEMO</li>
-                    <li>DEMO</li>
-                  </ul>
+                  <h4 class="card-title"></h4>
+                    {{-- CONTENT WILL COME HERE --}}
+
                 </div>
               </div>
               <br>
-              <div class="card">
+              <div class="card card-cst-250">
                 <div class="card-body">
-                  <h4 class="card-title">300 x 250</h4>
-                  {{-- <p class="card-description">Add class <code>.list-star</code> to <code>&lt;ul&gt;</code></p> --}}
-                  <ul class="list-star">
-                    <li>DEMO</li>
-                    <li>DEMO</li>
-                    <li>DEMO</li>
-                    <li>DEMO</li>
-                    <li>DEMO</li>
-                  </ul>
+                  <h4 class="card-title"></h4>
+                  {{-- content will come here --}}
                 </div>
               </div>
             </div>
@@ -160,9 +200,8 @@ body {
           </div>
           <div class="row">
           
-            <div class="col-md-12 offset-lg-3  ">
-            <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-numposts="5" data-width=""></div>
-            </div>
+            <div class="col-md-12 offset-lg-3 cust-col-mrgn-top">
+              <div class="fb-comments" data-href="https://www.vievlogs.com" data-numposts="5" data-width=""></div>            </div>
           </div>
         </div>
         <!-- content-wrapper ends -->
